@@ -1,0 +1,16 @@
+# https://docs.getdbt.com/reference/profiles.yml
+
+taxi_dataset:
+  outputs:
+
+    dev:
+      type: postgres
+      threads: 1
+      host: "host.docker.internal"
+      port: 5432
+      user: postgres
+      password: postgres
+      dbname: postgres
+      schema: postgres
+
+  target: dev

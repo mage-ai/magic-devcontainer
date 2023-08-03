@@ -1,0 +1,51 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose
+{
+	"name": "Existing Docker Compose (Extend)",
+	"dockerComposeFile": [
+		"../docker-compose.yml"
+	],
+	"service": "mage",
+	"workspaceFolder": "/home/src",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+					"bastienboutonnet.vscode-dbt",
+					"dorzey.vscode-sqlfluff",
+					"editorconfig.editorconfig",
+					"innoverio.vscode-dbt-power-user",
+					"ms-azuretools.vscode-docker",
+					"ms-python.python",
+					"ms-python.vscode-pylance",
+					"visualstudioexptteam.vscodeintellicode",
+					"eamodio.gitlens",
+					"mtxr.sqltools-driver-pg",
+					"mtxr.sqltools",
+					"redhat.vscode-yaml",
+					"samuelcolvin.jinjahtml"
+				],
+				"settings": {
+					"terminal.integrated.defaultProfile.linux#": "/bin/bash",
+					"python.pythonPath": "/usr/local/bin/python",
+					"python.languageServer": "Pylance",
+					"files.associations": {
+						"*.sql": "jinja-sql"
+					},
+					"sqltools.connections": [
+						{
+							"name": "postgres",
+							"driver": "PostgreSQL",
+							"previewLimit": 50,
+							"server": "host.docker.internal",
+							"port": 5432,
+							"database": "postgres",
+							"username": "postgres",
+							"password": "postgres"
+						}
+					],
+					"sql.linter.executablePath": "sqlfluff",
+					"sql.format.enable": false
+				}
+			}
+	}
+}

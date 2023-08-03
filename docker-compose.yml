@@ -1,0 +1,41 @@
+version: '3'
+services:
+  mage:
+    image: mageai/mageai:latest
+    command: mage start magic
+    build:
+      dockerfile: mage.Dockerfile
+    env_file:
+      - .env
+    environment:
+      - ENV=dev
+      - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+      - POSTGRES_DB=${POSTGRES_SCHEMA}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+    ports:
+      - 6789:6789
+    volumes:
+      - .:/home/src/
+      - ~/.aws:/root/.aws
+    restart: on-failure:5
+    depends_on:
+      - postgres
+  
+  postgres:
+    image: postgres:14
+    restart: on-failure
+    container_name: ${DOCKER_CONTAINER}
+    build:
+      dockerfile: postgres.Dockerfile
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_DB=${POSTGRES_SCHEMA}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "${CONTAINER_PORT}:5432"

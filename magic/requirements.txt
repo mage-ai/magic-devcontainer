@@ -1,0 +1,3 @@
+duckdb
+s3fs
+pyarrow

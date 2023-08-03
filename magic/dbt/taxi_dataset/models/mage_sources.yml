@@ -1,0 +1,6 @@
+sources:
+- name: mage_taxi_dataset
+  tables:
+  - name: icy_grass_load_stream
+  - name: dbt_demo_load_stream
+version: 2
