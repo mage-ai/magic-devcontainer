@@ -62,12 +62,12 @@ default:
   MYSQL_USER: root
   # PostgresSQL
   POSTGRES_CONNECT_TIMEOUT: 10
-  POSTGRES_DBNAME: postgres
-  POSTGRES_SCHEMA: postgres # Optional
-  POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: postgres
+  POSTGRES_DBNAME: "{{ env_var('POSTGRES_DB') }}"
+  POSTGRES_SCHEMA: "{{ env_var('POSTGRES_SCHEMA') }}"
+  POSTGRES_USER: "{{ env_var('POSTGRES_USER') }}"
+  POSTGRES_PASSWORD: "{{ env_var('POSTGRES_PASSWORD') }}"
   POSTGRES_HOST: host.docker.internal
-  POSTGRES_PORT: 5432
+  POSTGRES_PORT: "{{ env_var('PG_CONTAINER_PORT')}}"
   # Redshift
   REDSHIFT_SCHEMA: public # Optional
   REDSHIFT_DBNAME: redshift_db_name

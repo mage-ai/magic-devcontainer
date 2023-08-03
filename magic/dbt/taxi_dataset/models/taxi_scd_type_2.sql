@@ -1,6 +1,6 @@
 {{
   config(
-    materialized = "table",
+    materialized = "table"
   )
 }}
 
@@ -10,7 +10,7 @@ WITH base AS (
     _timestamp::timestamptz as timestamp,
     ride_status
   FROM
-    {{ ref('taxi_scd') }}
+    {{ ref('taxi_stream_raw') }}
 ),
 did_cg AS (
   SELECT
@@ -38,11 +38,11 @@ SELECT
   ride_id,
   ride_status,
   timestamp as start_ts,
-  LEAD(timestamp) OVER (
+  COALESCE(LEAD(timestamp) OVER (
     PARTITION by ride_id
     ORDER BY
       timestamp
-  ) as end_ts,
+  ), timestamp) as end_ts,
   LEAD(timestamp) OVER (
     PARTITION by ride_id
     ORDER BY

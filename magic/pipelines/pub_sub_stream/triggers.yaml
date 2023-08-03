@@ -1,0 +1,11 @@
+triggers:
+- envs: []
+  name: sample_trigger
+  pipeline_uuid: pub_sub_stream
+  schedule_interval: '@once'
+  schedule_type: time
+  settings: {}
+  sla: null
+  start_time: 2023-08-01 01:09:00
+  status: inactive
+  variables: null

@@ -6,11 +6,11 @@ taxi_dataset:
     dev:
       type: postgres
       threads: 1
-      host: "host.docker.internal"
-      port: 5432
-      user: postgres
-      password: postgres
-      dbname: postgres
-      schema: postgres
+      host: {{ env_var('POSTGRES_HOST') }}
+      port: {{ env_var('PG_HOST_PORT') | int }}
+      user: {{ env_var('POSTGRES_USER') }}
+      password: {{ env_var('POSTGRES_PASSWORD') }}
+      dbname: {{ env_var('POSTGRES_DB') }}
+      schema: {{ env_var('POSTGRES_SCHEMA') }}
 
   target: dev

@@ -8,15 +8,11 @@ if 'transformer' not in globals():
 @transformer
 def transform(messages: List[Dict], *args, **kwargs):
     """
-    Template code for a transformer block.
-
-    Args:
-        messages: List of messages in the stream.
-
-    Returns:
-        Transformed messages
+    Google sends us messages like {'data':'stringified_json'} 🙈
+    Let's clean it up! 🧹
     """
-
     transformed = [json.loads(m.get('data')) for m in messages]
+    
     print(transformed[0])
+    
     return transformed

@@ -3,7 +3,7 @@ blocks:
   color: null
   configuration: {}
   downstream_blocks:
-  - taxi_dataset/models/taxi_scd
+  - taxi_dataset/models/taxi_stream_raw
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -17,25 +17,21 @@ blocks:
 - all_upstream_blocks_executed: true
   color: null
   configuration:
-    dbt: {}
-    dbt_profile_target: null
-    export_write_policy: append
-    file_path: taxi_dataset/models/taxi_scd.sql
+    file_path: taxi_dataset/models/taxi_stream_raw.sql
     limit: 1000
-    use_raw_sql: false
   downstream_blocks:
   - taxi_dataset/models/taxi_scd_type_2
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: sql
-  name: taxi_dataset/models/taxi_scd
+  name: taxi_dataset/models/taxi_stream_raw
   retry_config: null
   status: executed
   type: dbt
   upstream_blocks:
   - load_stream
-  uuid: taxi_dataset/models/taxi_scd
+  uuid: taxi_dataset/models/taxi_stream_raw
 - all_upstream_blocks_executed: true
   color: null
   configuration:
@@ -51,7 +47,7 @@ blocks:
   status: executed
   type: dbt
   upstream_blocks:
-  - taxi_dataset/models/taxi_scd
+  - taxi_dataset/models/taxi_stream_raw
   uuid: taxi_dataset/models/taxi_scd_type_2
 - all_upstream_blocks_executed: true
   color: null
@@ -61,12 +57,12 @@ blocks:
   executor_type: local_python
   has_callback: false
   language: python
-  name: weathered paper
+  name: young snowflake
   retry_config: null
   status: updated
   type: scratchpad
   upstream_blocks: []
-  uuid: weathered_paper
+  uuid: young_snowflake
 callbacks: []
 concurrency_config: {}
 conditionals: []
@@ -82,6 +78,7 @@ retry_config: {}
 spark_config: {}
 tags: []
 type: python
-updated_at: '2023-08-02 21:25:38'
+updated_at: '2023-08-03 16:50:23'
 uuid: dbt_demo
+variables: {}
 widgets: []

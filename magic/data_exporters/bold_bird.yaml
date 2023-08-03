@@ -1,5 +1,5 @@
 connector_type: amazon_s3
-bucket: ahhh-buck-it
+bucket: "{{ env_var('S3_BUCKET') }}"
 prefix: taxi_data_stream
 file_type: parquet
 buffer_size_mb: 1

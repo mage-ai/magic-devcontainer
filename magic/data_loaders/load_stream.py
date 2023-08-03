@@ -16,11 +16,11 @@ def load_from_s3_bucket(*args, **kwargs):
 
     key_id = getenv('AWS_ACCESS_KEY_ID')
     key_value = getenv('AWS_SECRET_ACCESS_KEY')
+    bucket = getenv('S3_BUCKET')
     
     conn = duckdb.connect()
     conn.execute("INSTALL httpfs;")
     conn.execute("LOAD httpfs;")
-
 
     conn.execute(f"SET s3_region='us-east-2';")
     conn.execute(f"SET s3_access_key_id='{key_id}';")
@@ -29,7 +29,7 @@ def load_from_s3_bucket(*args, **kwargs):
     bucket_name = 'ahhh-buck-it'
     object_path = 'taxi_data_stream'
 
-    path = 's3://ahhh-buck-it/taxi_data_stream/*.parquet'
+    path = f's3://{bucket}/taxi_data_stream/*.parquet'
     db = conn.sql(f"SELECT * FROM read_parquet('{path}');")
 
     return db.df()
