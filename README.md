@@ -13,12 +13,14 @@ Then, it creates a batch pipeline to:
 
 ## Set-up
 
-Prerequisites
+**Prerequisites**
 
 - Docker
 - VSCode
 - A GCP project for Pubsub setup & a service account
 - An AWS account (or other cloud storage provider) to store the stream
+
+Let's get started 🎉
 
 1. `git clone https://github.com/mage-ai/pubsub-devcontainer-demo`
 2. Configure the Google Cloud Pubsub topic using [these instuctions](https://github.com/googlecodelabs/cloud-dataflow-nyc-taxi-tycoon#public-pubsub-data-stream) for guidance. All that's required are: the `gcloud` CLI, a GCP account, and one command. You'll also need [a service account](https://cloud.google.com/iam/docs/service-accounts-create) for our Mage instance.
