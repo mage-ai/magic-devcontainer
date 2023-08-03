@@ -1,4 +1,4 @@
-## Mage Streaming + dbt Demo Project
+## 🎏 Mage Streaming + dbt Demo Project
 
 This project uses a sample topic— [the Google NYC Taxi Pubsub](https://github.com/googlecodelabs/cloud-dataflow-nyc-taxi-tycoon#public-pubsub-data-stream) to create a streaming pipeline in Mage that:
 
@@ -11,7 +11,11 @@ Then, it creates a batch pipeline to:
 - Execute a dbt model to store the raw data in a local Postgres instance.
 - Execute a dbt model to transform the raw data to an SCD Type-2 table, logging the status updates for each ride.
 
-## Set-up
+<p align="center">
+<img src="https://github.com/mage-ai/pubsub-devcontainer-demo/assets/59450879/e6605722-ea32-4784-af71-6336e67e00a2"></img>
+</p>
+
+## 🛠️ Configuration
 
 **Prerequisites**
 
@@ -31,7 +35,7 @@ Let's get started 🎉
 7. Select the prompt to "Reopen in Container" to start the devcontainer _or_ open the command prompt and select "Devcontainers: Rebuild and Reopen in Container." This will build a devcontainer (a Docker container) and install all dependencies to your project. This may take a few minutes.
 8. Navigate to `localhost:6789` when the container is ready. You should see the Mage UI!
 
-## Stream data from a Pubsub topic to S3
+## 🤓 Stream data from a Pubsub topic to S3
 
 1. Navigate to the "Pipelines" tab in the Mage UI.
 2. Two pipelines exist— `pub_sub_stream` and `dbt_demo`— click `pub_sub_stream` then the "code" icon in the top left to open the pipeline code.
@@ -40,7 +44,7 @@ Let's get started 🎉
 
 Nice! We've got a working stream. You can click `Cancel pipeline` after some sample data has been loaded or let the stream run. Don't forget to run `gcloud alpha pubsub subscriptions delete projects/verdant-current-393218/subscriptions/taxi-test-sub` to terminate your sample stream.
 
-## Run dbt transformations
+## 🧱 Run dbt transformations
 
 This container builds a postgres database alongside our Mage app for us to run transformations in dbt. Navigate to the `pipelines` page and select `dbt demo`. Select the code icon.
 
