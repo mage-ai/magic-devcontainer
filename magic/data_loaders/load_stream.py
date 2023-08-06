@@ -13,7 +13,7 @@ if 'test' not in globals():
 
 @data_loader
 def load_from_s3_bucket(*args, **kwargs):
-
+    
     key_id = getenv('AWS_ACCESS_KEY_ID')
     key_value = getenv('AWS_SECRET_ACCESS_KEY')
     bucket = getenv('S3_BUCKET')
@@ -29,7 +29,7 @@ def load_from_s3_bucket(*args, **kwargs):
     bucket_name = 'ahhh-buck-it'
     object_path = 'taxi_data_stream'
 
-    path = f's3://{bucket}/taxi_data_stream/*.parquet'
+    path = f's3://{bucket}/local_taxi_data_stream/*.parquet'
     db = conn.sql(f"SELECT * FROM read_parquet('{path}');")
 
     return db.df()

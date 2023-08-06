@@ -1,0 +1,6 @@
+connector_type: kafka
+bootstrap_server: kafka:9092
+topic: magic-stream
+consumer_group: magic-consumer
+# serde_config:
+#   serialization_method: RAW_VALUE

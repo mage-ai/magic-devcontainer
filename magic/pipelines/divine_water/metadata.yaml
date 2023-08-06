@@ -3,33 +3,33 @@ blocks:
   color: null
   configuration: {}
   downstream_blocks:
-  - long_leaf
+  - nameless_cloud
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: yaml
-  name: taxi-data-stream
+  name: aged silence
   retry_config: null
   status: updated
   type: data_loader
   upstream_blocks: []
-  uuid: taxi_data_stream
+  uuid: aged_silence
 - all_upstream_blocks_executed: false
   color: null
   configuration: {}
   downstream_blocks:
-  - bold_bird
+  - lively_moon
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: long leaf
+  name: nameless cloud
   retry_config: null
   status: updated
   type: transformer
   upstream_blocks:
-  - taxi_data_stream
-  uuid: long_leaf
+  - aged_silence
+  uuid: nameless_cloud
 - all_upstream_blocks_executed: false
   color: null
   configuration: {}
@@ -38,13 +38,13 @@ blocks:
   executor_type: local_python
   has_callback: false
   language: yaml
-  name: bold bird
+  name: lively moon
   retry_config: null
   status: updated
   type: data_exporter
   upstream_blocks:
-  - long_leaf
-  uuid: bold_bird
+  - nameless_cloud
+  uuid: lively_moon
 callbacks: []
 concurrency_config: {}
 conditionals: []
@@ -54,12 +54,12 @@ executor_config: {}
 executor_count: 1
 executor_type: null
 extensions: {}
-name: pub-sub-stream
+name: divine water
 notification_config: {}
 retry_config: {}
 spark_config: {}
 tags: []
 type: streaming
-updated_at: '2023-08-03 20:51:12'
-uuid: pub_sub_stream
+updated_at: '2023-08-06 02:02:00'
+uuid: divine_water
 widgets: []

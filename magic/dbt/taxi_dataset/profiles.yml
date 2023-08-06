@@ -2,7 +2,6 @@
 
 taxi_dataset:
   outputs:
-
     dev:
       type: postgres
       threads: 1

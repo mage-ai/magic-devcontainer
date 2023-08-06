@@ -1,0 +1,8 @@
+connector_type: kafka
+bootstrap_server: "kafka:29092"
+topic: magic-stream
+consumer_group: magic-consumer
+batch_size: 100
+
+serde_config:
+  serialization_method: RAW_VALUE
