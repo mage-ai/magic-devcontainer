@@ -1,0 +1,65 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - transform_local_kafka
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: yaml
+  name: load_local_kafka
+  retry_config: null
+  status: updated
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_local_kafka
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - autumn_field
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: transform_local_kafka
+  retry_config: null
+  status: updated
+  type: transformer
+  upstream_blocks:
+  - load_local_kafka
+  uuid: transform_local_kafka
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: yaml
+  name: autumn field
+  retry_config: null
+  status: updated
+  type: data_exporter
+  upstream_blocks:
+  - transform_local_kafka
+  uuid: autumn_field
+callbacks: []
+concurrency_config: {}
+conditionals: []
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: kafka_demo
+notification_config: {}
+retry_config: {}
+spark_config: {}
+tags: []
+type: streaming
+updated_at: '2023-08-06 16:07:13'
+uuid: kafka_demo
+widgets: []

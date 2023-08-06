@@ -73,11 +73,11 @@ services:
     depends_on:
       - kafka
     build:
-      context: ./kafka
-    container_name: kafka
+      context: ./stream
+    container_name: stream-magic
     command: python bin/send_stream.py
-    working_dir: /home/kafka
+    working_dir: /home/stream
     volumes:
-      - ./kafka:/home/kafka
+      - ./stream:/home/stream
     restart: always
 

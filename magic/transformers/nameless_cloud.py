@@ -8,4 +8,4 @@ if 'transformer' not in globals():
 @transformer
 def transform(messages: List[Dict], *args, **kwargs):
     m = [json.loads(i) for i in messages]
-    return m
+    print(m)
