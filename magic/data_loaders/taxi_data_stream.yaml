@@ -1,8 +1,0 @@
-connector_type: google_cloud_pubsub
-project_id: "{{ env_var('GCP_ID') }}"
-topic_id: "{{ env_var('TOPIC_ID') }}"
-subscription_id: "{{ env_var('SUBSCRIPTION_ID') }}"
-timeout: 5
-batch_size: 2000
-pubsub_emulator_host: null
-path_to_credentials_json_file: "/home/src/google_secrets.json"

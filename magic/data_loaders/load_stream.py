@@ -1,6 +1,3 @@
-from mage_ai.settings.repo import get_repo_path
-from mage_ai.io.config import ConfigFileLoader
-from mage_ai.io.s3 import S3
 import os
 import awswrangler as wr
 
@@ -13,7 +10,7 @@ if 'test' not in globals():
 @data_loader
 def load_from_s3_bucket(*args, **kwargs):
 
-    df = wr.s3.read_parquet(path="s3://ahhh-buck-it/local_taxi_data_stream/", dataset=True)
+    df = wr.s3.read_parquet(path="s3://ahhh-buck-it/taxi_data_stream/", dataset=True)
 
     return df
 

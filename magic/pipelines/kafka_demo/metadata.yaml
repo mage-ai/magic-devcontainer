@@ -18,7 +18,7 @@ blocks:
   color: null
   configuration: {}
   downstream_blocks:
-  - autumn_field
+  - export_local_kafka
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -38,13 +38,13 @@ blocks:
   executor_type: local_python
   has_callback: false
   language: yaml
-  name: autumn field
+  name: export_local_kafka
   retry_config: null
   status: updated
   type: data_exporter
   upstream_blocks:
   - transform_local_kafka
-  uuid: autumn_field
+  uuid: export_local_kafka
 callbacks: []
 concurrency_config: {}
 conditionals: []
@@ -60,6 +60,6 @@ retry_config: {}
 spark_config: {}
 tags: []
 type: streaming
-updated_at: '2023-08-07 23:21:53'
+updated_at: '2023-08-07 23:41:29'
 uuid: kafka_demo
 widgets: []
