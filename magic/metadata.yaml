@@ -46,5 +46,5 @@ notification_config:
     webhook_url: "{{ env_var('MAGE_SLACK_WEBHOOK_URL') }}"
   teams_config:
     webhook_url: "{{ env_var('MAGE_TEAMS_WEBHOOK_URL') }}"
-project_uuid: be5f3f0d7ef54fb79b44d7144040f244
+project_uuid: 7a0b11e738c6469990cc86a1192f2885
 help_improve_mage: true

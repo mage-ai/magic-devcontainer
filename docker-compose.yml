@@ -73,6 +73,7 @@ services:
       context: ./stream
     depends_on:
       - kafka
+      - zookeeper
     container_name: stream-magic
     command: python bin/send_stream.py
     working_dir: /home/stream

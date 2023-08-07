@@ -7,7 +7,7 @@ if __name__ == '__main__':
     topic = 'magic-stream'
     producer = confluent_kafka.Producer({'bootstrap.servers': 'kafka:29092'})
     print('starting stream...')
-    time.sleep(10)
+    time.sleep(30)
     
     with open('./data/taxi-stream.json', 'r') as f:
         messages = json.load(f)
