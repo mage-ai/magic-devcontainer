@@ -2,40 +2,82 @@ version: '3'
 services:
   mage:
     image: mageai/mageai:latest
+    container_name: magic
+    depends_on:
+      - postgres
+      - kafka
     command: mage start magic
     build:
-      dockerfile: mage.Dockerfile
+      context: ./magic
     env_file:
       - .env
     environment:
-      - ENV=dev
-      - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
-      - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
-      - POSTGRES_DB=${POSTGRES_SCHEMA}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_HOST=${POSTGRES_HOST}
-      - POSTGRES_PORT=${POSTGRES_PORT}
+      ENV: dev
+      AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+      POSTGRES_DB: ${POSTGRES_SCHEMA}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT}
     ports:
       - 6789:6789
     volumes:
       - .:/home/src/
       - ~/.aws:/root/.aws
     restart: on-failure:5
-    depends_on:
-      - postgres
   
   postgres:
     image: postgres:14
     restart: on-failure
-    container_name: ${DOCKER_CONTAINER}
+    container_name: postgres-magic
     build:
-      dockerfile: postgres.Dockerfile
+      context: ./db
     env_file:
       - .env
     environment:
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "${PG_HOST_PORT}:5432"
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.0
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    container_name: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - 9092:9092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 100
+
+  stream:
+    build:
+      context: ./stream
+    depends_on:
+      - kafka
+    container_name: stream-magic
+    command: python bin/send_stream.py
+    working_dir: /home/stream
+    volumes:
+      - ./stream:/home/stream
+    restart: always
+    environment:
+      PYTHONUNBUFFERED: 1

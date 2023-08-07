@@ -1,0 +1,13 @@
+[
+  {
+    "ride_id": "49be0fc2-bb7a-4613-93db-ce30f8c5c66f",
+    "point_idx": 525,
+    "latitude": 40.73818,
+    "longitude": -73.97765000000001,
+    "timestamp": "2023-08-04T22:08:06.7316-04:00",
+    "meter_reading": 11.53125,
+    "meter_increment": 0.021964286,
+    "ride_status": "enroute",
+    "passenger_count": 2
+  }
+]

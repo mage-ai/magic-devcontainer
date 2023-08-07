@@ -1,3 +1,2 @@
-duckdb
-s3fs
+awswrangler
 pyarrow
