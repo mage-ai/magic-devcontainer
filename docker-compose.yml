@@ -6,7 +6,6 @@ services:
     depends_on:
       - postgres
       - kafka
-      - stream
     command: mage start magic
     build:
       context: ./magic
@@ -44,14 +43,14 @@ services:
       - "${PG_HOST_PORT}:5432"
 
   zookeeper:
-    image: confluentinc/cp-zookeeper:6.1.0
+    image: confluentinc/cp-zookeeper:7.4.0
     container_name: zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
 
   kafka:
-    image: confluentinc/cp-kafka:6.1.0
+    image: confluentinc/cp-kafka:7.4.0
     container_name: kafka
     depends_on:
       - zookeeper
@@ -70,14 +69,15 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 100
 
   stream:
-    depends_on:
-      - kafka
     build:
       context: ./stream
+    depends_on:
+      - kafka
     container_name: stream-magic
     command: python bin/send_stream.py
     working_dir: /home/stream
     volumes:
       - ./stream:/home/stream
     restart: always
-
+    environment:
+      PYTHONUNBUFFERED: 1

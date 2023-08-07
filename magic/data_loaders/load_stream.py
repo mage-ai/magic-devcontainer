@@ -1,9 +1,8 @@
 from mage_ai.settings.repo import get_repo_path
 from mage_ai.io.config import ConfigFileLoader
 from mage_ai.io.s3 import S3
-from os import path, getenv
-import duckdb
-import pandas as pd
+import os
+import awswrangler as wr
 
 if 'data_loader' not in globals():
     from mage_ai.data_preparation.decorators import data_loader
@@ -13,33 +12,28 @@ if 'test' not in globals():
 
 @data_loader
 def load_from_s3_bucket(*args, **kwargs):
-    
-    key_id = getenv('AWS_ACCESS_KEY_ID')
-    key_value = getenv('AWS_SECRET_ACCESS_KEY')
-    bucket = getenv('S3_BUCKET')
-    
-    conn = duckdb.connect()
-    conn.execute("INSTALL httpfs;")
-    conn.execute("LOAD httpfs;")
 
-    conn.execute(f"SET s3_region='us-east-2';")
-    conn.execute(f"SET s3_access_key_id='{key_id}';")
-    conn.execute(f"SET s3_secret_access_key='{key_value}';")
+    df = wr.s3.read_parquet(path="s3://ahhh-buck-it/local_taxi_data_stream/", dataset=True)
 
-    bucket_name = 'ahhh-buck-it'
-    object_path = 'taxi_data_stream'
-
-    path = f's3://{bucket}/local_taxi_data_stream/*.parquet'
-    db = conn.sql(f"SELECT * FROM read_parquet('{path}');")
-
-    return db.df()
+    return df
 
 @test
 def test_columns(output, *args) -> None:
     """
     Test the number of columns.
     """
-    assert (len(output.columns) == 9)
+
+    expected_cols = ['ride_id', 
+                     'point_idx', 
+                     'latitude', 
+                     'longitude', 
+                     'timestamp', 
+                     'meter_reading', 
+                     'meter_increment', 
+                     'ride_status', 
+                     'passenger_count'
+                     ]
+    assert set(expected_cols).issubset(set(output.columns))
 
 @test
 def test_status(output, *args) -> None:
