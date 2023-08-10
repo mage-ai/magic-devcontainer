@@ -17,7 +17,7 @@ def load_from_s3_bucket(*args, **kwargs):
 @test
 def test_columns(output, *args) -> None:
     """
-    Test the number of columns.
+    Test for expected columns.
     """
 
     expected_cols = ['ride_id', 
@@ -30,6 +30,7 @@ def test_columns(output, *args) -> None:
                      'ride_status', 
                      'passenger_count'
                      ]
+                     
     assert set(expected_cols).issubset(set(output.columns))
 
 @test

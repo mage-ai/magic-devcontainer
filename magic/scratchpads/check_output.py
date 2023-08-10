@@ -10,6 +10,7 @@ conn = psycopg2.connect(
         password=getenv('POSTGRES_PASSWORD')
     )
 
+
 with conn:
     sql = """
         WITH sample_user AS (
@@ -18,7 +19,7 @@ with conn:
                 COUNT(DISTINCT ride_status) as status_count
             FROM postgres.taxi_stream_raw
             GROUP BY 1
-            HAVING COUNT(DISTINCT ride_status) = 2
+            HAVING COUNT(DISTINCT ride_status) =2
             ORDER BY RANDOM()
             LIMIT 1
         )
