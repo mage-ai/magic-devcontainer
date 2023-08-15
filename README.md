@@ -45,7 +45,7 @@ The _acutal_ stream is managed by the `stream` container, which spins up a pytho
 
 Data will begin streaming 30 seconds after the container starts.
 
-## 🤓 Stream data from a Pubsub topic to S3
+## 🤓 Stream data from a dummy source to S3
 
 1. Navigate to the "Pipelines" tab in the Mage UI.
 2. Two pipelines exist— `kafka_demo` and `dbt_demo`— click `kafka_demo` then the "code" icon in the top left to open the pipeline code.
@@ -58,11 +58,13 @@ Data will begin streaming 30 seconds after the container starts.
 
 Nice! We've got a working stream. You can click `Cancel pipeline` after some sample data has been loaded or let the stream run.
 
+Behind the scenes, we're kicking off a Kafka + Zookeeper instance, creating a topic, and writing data to that topic. Mage is then pulling in this "simulated" stream, transforming it, and writing to S3!
+
 ## 🧱 Run dbt transformations
 
 This container builds a postgres database alongside our Mage app for us to run transformations in dbt. Navigate to the `pipelines` page and select `dbt demo`. Select the code icon.
 
-- The first cell reads in the data from our stream. Click the play icon or hit CMD + Enter to run.
+- The first cell reads in the data from our stream (stored in s3 or your cloud provider of choice). Click the play icon or hit CMD + Enter to run.
 - You might notice there are some tests in this cell— Mage incorporates _runtime tests_ to check the quality of your data. What tests are we running here?
 - The next cell writes our data to a postgres table using `dbt`. Note how we can read from our mage data _directly_, without the need for an intermediate table.
 - Finally, we apply a transform to build an [SCD Type-2](https://en.wikipedia.org/wiki/Slowly_changing_dimension#Type_2:_add_new_row) table from our dataset. This is also known as a "change-log" format.
