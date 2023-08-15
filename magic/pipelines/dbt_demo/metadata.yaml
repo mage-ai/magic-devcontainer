@@ -79,7 +79,7 @@ retry_config: {}
 spark_config: {}
 tags: []
 type: python
-updated_at: '2023-08-10 22:29:32'
+updated_at: '2023-08-15 22:24:14'
 uuid: dbt_demo
 variables: {}
 widgets: []

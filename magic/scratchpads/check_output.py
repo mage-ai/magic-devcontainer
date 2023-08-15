@@ -19,11 +19,12 @@ with conn:
                 COUNT(DISTINCT ride_status) as status_count
             FROM postgres.taxi_stream_raw
             GROUP BY 1
-            HAVING COUNT(DISTINCT ride_status) =2
+            HAVING COUNT(DISTINCT ride_status) = 3
             ORDER BY RANDOM()
             LIMIT 1
         )
             SELECT
+                ride_id,
                 ride_status,
                 start_ts,
                 end_ts,

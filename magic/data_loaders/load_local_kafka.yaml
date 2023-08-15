@@ -5,3 +5,4 @@ consumer_group: magic-consumer
 serde_config:
   serialization_method: RAW_OUTPUT
 batch_size: 1000
+timeout_ms: 1000
