@@ -8,8 +8,14 @@ from diagrams.onprem.database import Postgresql
 from diagrams.programming.language import Python
 from diagrams.oci.database import Stream
 
+graph_attr = {
+    "fontsize": "45",
+    "charset": "UTF-8",
+    "fontcolor": "black",
+    "color": "black",
+}
 
-with Diagram(filename="magic-devcontainer", direction="LR"):
+with Diagram(filename="magic-devcontainer", direction="LR", graph_attr=graph_attr):
   s3 = S3("S3")
   with Cluster("devcontainer"):
     with Cluster("Docker"):
