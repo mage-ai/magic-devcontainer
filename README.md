@@ -57,7 +57,7 @@ Data will begin streaming 30 seconds after the container starts.
 4. Click `Execute pipeline` in the bottom right to run your stream. You should see data flowing!
 
 <p align="center">
-<img src="https://github.com/mage-ai/magic-devcontainer/assets/59450879/2adb9171-30ed-4097-924d-be83b355d822"></img>
+<img src="https://github.com/mage-ai/magic-devcontainer/assets/59450879/2adb9171-30ed-4097-924d-be83b355d822" width="60%"></img>
 </p>
 
 Nice! We've got a working stream. You can click `Cancel pipeline` after some sample data has been loaded or let the stream run.
