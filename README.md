@@ -35,6 +35,8 @@ Let's get started 🎉
 
 ![Architecture Diagram](/assets/magic-devcontainer.png)
 
+_This diagram is generated with to update `cd` into `assets` and run `python diagram.py`_ 😎
+
 By performing the above, VSCode is creating an isolated environment, installing a few extensions + building and running Docker as defined in `docker-compose.yaml`. 
 
 We're using [Devcontainers](https://containers.dev/) to create a consistent development environment for our project. This means that we can be sure that our code will run in the same environment as our teammates and that we can easily share our code with others.
