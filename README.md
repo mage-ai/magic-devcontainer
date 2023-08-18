@@ -12,7 +12,7 @@ Then, it creates a batch pipeline to:
 - Execute a dbt model to transform the raw data to an SCD Type-2 table, logging the status updates for each ride.
 
 <p align="center">
-<img src="https://github.com/mage-ai/pubsub-devcontainer-demo/assets/59450879/e6605722-ea32-4784-af71-6336e67e00a2"></img>
+<img src="![Alt text](image.png)"></img>
 </p>
 
 ## 🛠️ Configuration
