@@ -12,7 +12,7 @@ Then, it creates a batch pipeline to:
 - Execute a dbt model to transform the raw data to an SCD Type-2 table, logging the status updates for each ride.
 
 <p align="center">
-<img src="![Alt text](image.png)"></img>
+<img src="https://github.com/mage-ai/magic-devcontainer/blob/main/assets/magic-devcontainer.png"></img>
 </p>
 
 ## 🛠️ Configuration
@@ -59,7 +59,7 @@ Data will begin streaming 30 seconds after the container starts.
 4. Click `Execute pipeline` in the bottom right to run your stream. You should see data flowing!
 
 <p align="center">
-<img src="https://github.com/mage-ai/magic-devcontainer/assets/59450879/2adb9171-30ed-4097-924d-be83b355d822" width="60%"></img>
+<img src="https://github.com/mage-ai/magic-devcontainer/blob/main/assets/img/mage-gif.gif" width="60%"></img>
 </p>
 
 Nice! We've got a working stream. You can click `Cancel pipeline` after some sample data has been loaded or let the stream run.
