@@ -13,6 +13,7 @@ graph_attr = {
     "charset": "UTF-8",
     "fontcolor": "black",
     "color": "black",
+    "margin":"-2, -2"
 }
 
 with Diagram(filename="magic-devcontainer", direction="LR", graph_attr=graph_attr):
