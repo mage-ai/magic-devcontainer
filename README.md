@@ -34,7 +34,7 @@ Let's get started 🎉
 ## 🙋‍♂️ Wait, what's happening?
 
 <p align="center">
-<img src="https://github.com/mage-ai/magic-devcontainer/blob/accf0cab2eb604978cb4e012c22e90b5cf47f3df/assets/magic-devcontainer.png" width="60%"></img>
+<img src="https://github.com/mage-ai/magic-devcontainer/blob/main/assets/magic-devcontainer.png" width="60%"></img>
 </p>
 
 _This diagram is generated with to update `cd` into `assets` and run `python diagram.py`_ 😎
