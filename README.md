@@ -17,11 +17,11 @@ Then, it creates a batch pipeline to:
 
 ## 🛠️ Configuration
 
-**Prerequisites**
+### Prerequisites
 
 - Docker
-- VSCode
 - An AWS account (or other cloud storage provider) to store the stream
+- VSCode (optional)
 
 Let's get started 🎉
 
@@ -41,7 +41,6 @@ git clone https://github.com/mage-ai/pubsub-devcontainer-demo magic-devcontainer
 && cp .env.example .env \
 && docker compose up
 ```
-
 
 ## 🙋‍♂️ Wait, what's happening?
 
