@@ -12,6 +12,7 @@ blocks:
   name: load_stream
   retry_config: null
   status: executed
+  timeout: null
   type: data_loader
   upstream_blocks: []
   uuid: load_stream
@@ -29,6 +30,7 @@ blocks:
   name: taxi_dataset/models/taxi_stream_raw
   retry_config: null
   status: executed
+  timeout: null
   type: dbt
   upstream_blocks:
   - load_stream
@@ -46,6 +48,7 @@ blocks:
   name: taxi_dataset/models/taxi_scd_type_2
   retry_config: null
   status: executed
+  timeout: null
   type: dbt
   upstream_blocks:
   - taxi_dataset/models/taxi_stream_raw
@@ -61,12 +64,14 @@ blocks:
   name: check_output
   retry_config: null
   status: updated
+  timeout: null
   type: scratchpad
   upstream_blocks: []
   uuid: check_output
 callbacks: []
 concurrency_config: {}
 conditionals: []
+created_at: null
 data_integration: null
 description: null
 executor_config: {}
@@ -76,10 +81,11 @@ extensions: {}
 name: dbt_demo
 notification_config: {}
 retry_config: {}
+run_pipeline_in_one_process: false
 spark_config: {}
 tags: []
 type: python
-updated_at: '2023-08-18 00:41:44'
+updated_at: '2023-09-15 22:52:52'
 uuid: dbt_demo
 variables: {}
 widgets: []

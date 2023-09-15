@@ -9,7 +9,7 @@ taxi_dataset:
       port: {{ env_var('PG_HOST_PORT') | int }}
       user: {{ env_var('POSTGRES_USER') }}
       password: {{ env_var('POSTGRES_PASSWORD') }}
-      dbname: {{ env_var('POSTGRES_DB') }}
+      dbname: {{ env_var('POSTGRES_DB', 'postgres') }}
       schema: {{ env_var('POSTGRES_SCHEMA') }}
 
   target: dev

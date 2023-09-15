@@ -67,7 +67,7 @@ default:
   POSTGRES_USER: "{{ env_var('POSTGRES_USER') }}"
   POSTGRES_PASSWORD: "{{ env_var('POSTGRES_PASSWORD') }}"
   POSTGRES_HOST: host.docker.internal
-  POSTGRES_PORT: "{{ env_var('PG_CONTAINER_PORT')}}"
+  POSTGRES_PORT: "{{ env_var('PG_HOST_PORT')}}"
   # Redshift
   REDSHIFT_SCHEMA: public # Optional
   REDSHIFT_DBNAME: redshift_db_name
