@@ -25,7 +25,7 @@ Then, it creates a batch pipeline to:
 
 Let's get started 🎉
 
-1. `git clone https://github.com/mage-ai/pubsub-devcontainer-demo`
+1. `git clone https://github.com/mage-ai/magic-devcontainer`
 2. Open the cloned file in VSCode.
 3. Create a `.env` file with the requisite variables. See the `.env.example` file for guidance.
 4. Select the prompt to `reopen in Container` to start the devcontainer _or_ open the command prompt and select `Devcontainers: Rebuild and Reopen in Container`. This will build a devcontainer (a Docker container) and install all dependencies to your project. This may take a few minutes.
