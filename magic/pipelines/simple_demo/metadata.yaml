@@ -3,35 +3,35 @@ blocks:
   color: null
   configuration: {}
   downstream_blocks:
-  - billowing_snow
+  - transform_api
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: cool sky
+  name: load api
   retry_config: null
   status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
-  uuid: cool_sky
+  uuid: load_api
 - all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks:
-  - still_fog
+  - write_api
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: billowing snow
+  name: transform api
   retry_config: null
   status: executed
   timeout: null
   type: transformer
   upstream_blocks:
-  - cool_sky
-  uuid: billowing_snow
+  - load_api
+  uuid: transform_api
 - all_upstream_blocks_executed: true
   color: null
   configuration: {}
@@ -40,14 +40,14 @@ blocks:
   executor_type: local_python
   has_callback: false
   language: python
-  name: still fog
+  name: write api
   retry_config: null
   status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
-  - billowing_snow
-  uuid: still_fog
+  - transform_api
+  uuid: write_api
 callbacks: []
 concurrency_config: {}
 conditionals: []
@@ -65,6 +65,6 @@ run_pipeline_in_one_process: false
 spark_config: {}
 tags: []
 type: python
-updated_at: '2023-09-15 22:41:43'
+updated_at: '2023-09-15 22:58:40'
 uuid: simple_demo
 widgets: []

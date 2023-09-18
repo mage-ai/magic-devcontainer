@@ -85,7 +85,7 @@ run_pipeline_in_one_process: false
 spark_config: {}
 tags: []
 type: python
-updated_at: '2023-09-15 22:52:52'
+updated_at: '2023-09-15 23:00:00'
 uuid: dbt_demo
 variables: {}
 widgets: []

@@ -65,6 +65,6 @@ run_pipeline_in_one_process: false
 spark_config: {}
 tags: []
 type: streaming
-updated_at: '2023-09-15 22:42:05'
+updated_at: '2023-09-15 22:58:52'
 uuid: kafka_demo
 widgets: []
