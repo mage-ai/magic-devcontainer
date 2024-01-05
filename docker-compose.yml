@@ -12,7 +12,6 @@ services:
     env_file:
       - .env
     environment:
-      ENV: dev
       AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
       AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
       POSTGRES_DB: ${POSTGRES_SCHEMA}
